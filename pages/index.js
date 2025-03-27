@@ -1,14 +1,9 @@
-import Head from "next/head";
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Rocket } from "lucide-react";
-import { motion } from "framer-motion";
+import Head from 'next/head';
+import React from 'react';
 
-export default function RocketInsuranceWebsite() {
-  const logos = ["Aviva", "Travelers", "Intact", "CAA"];
-
+export default function Home() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200">
+    <React.Fragment>
       <Head>
         <title>Rocket Insurance</title>
         <link
@@ -17,103 +12,80 @@ export default function RocketInsuranceWebsite() {
         />
       </Head>
 
-      <header className="bg-white shadow-md py-6 px-10 flex justify-between items-center">
-        <div className="flex items-center gap-3">
-          <Rocket className="text-blue-600" size={32} />
-          <h1 className="text-2xl font-bold text-blue-800">Rocket Insurance</h1>
-        </div>
-        <nav className="space-x-6 text-blue-700 font-medium">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#partners">Partners</a>
-          <a href="#careers">Careers</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+      <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200 text-gray-800">
+        <header className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
+          <h1 className="text-xl font-bold text-blue-800">🚀 Rocket Insurance</h1>
+          <nav className="space-x-6 text-blue-700 font-medium">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#partners">Partners</a>
+            <a href="#careers">Careers</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </header>
 
-      <main className="text-center py-20 px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-5xl font-bold text-blue-900 mb-4"
-        >
-          Reach New Heights with Rocket Insurance 🚀
-        </motion.h2>
-        <p className="text-lg text-blue-700 mb-6">
-          Personal and commercial insurance that’s out of this world. Let’s make your coverage easy, affordable, and stress-free.
-        </p>
-        <Button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-6 py-3">
-          Get a Quote
-        </Button>
-        <div className="mt-4">
-          <Button variant="outline" className="text-blue-700 border-blue-700">
+        <main className="text-center py-20 px-6">
+          <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-6">
+            Reach New Heights with Rocket Insurance 🚀
+          </h2>
+          <p className="text-lg text-blue-800 mb-8">
+            Personal and commercial insurance that’s out of this world. Let’s make your coverage easy, affordable, and stress-free.
+          </p>
+          <a href="#contact" className="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition-all">
+            Get a Quote
+          </a>
+        </main>
+
+        <section id="about" className="bg-white py-16 px-8 text-center">
+          <h3 className="text-2xl font-bold text-blue-800 mb-4">About Rocket Insurance</h3>
+          <p className="max-w-2xl mx-auto">
+            Rocket Insurance is Latina-owned and proudly Canadian. We're on a mission to simplify insurance for everyone—bringing heart and hustle to the insurance world.
+          </p>
+        </section>
+
+        <section id="services" className="py-16 px-8 text-center bg-blue-50">
+          <h3 className="text-2xl font-bold text-blue-800 mb-4">Our Services</h3>
+          <ul className="space-y-2">
+            <li>✔️ Auto Insurance</li>
+            <li>✔️ Home Insurance</li>
+            <li>✔️ Commercial Insurance</li>
+            <li>✔️ Life Insurance</li>
+          </ul>
+        </section>
+
+        <section id="partners" className="py-16 px-8 text-center">
+          <h3 className="text-2xl font-bold text-blue-800 mb-6">Our Partners</h3>
+          <div className="flex justify-center gap-6 flex-wrap">
+            <span>Aviva</span>
+            <span>Travelers</span>
+            <span>Intact</span>
+            <span>Wawanesa</span>
+            <span>Economical</span>
+            <span>CAA</span>
+          </div>
+        </section>
+
+        <section id="careers" className="bg-blue-50 py-16 px-8 text-center">
+          <h3 className="text-2xl font-bold text-blue-800 mb-4">Careers</h3>
+          <p>
+            Want to join the Rocket fam? We’re always looking for passionate, driven people ready to make a difference. 💼✨
+          </p>
+          <a href="#contact" className="inline-block mt-4 bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700">
             Apply Now
-          </Button>
-        </div>
-      </main>
+          </a>
+        </section>
 
-      <section id="about" className="bg-white py-16 px-10 text-center">
-        <h3 className="text-2xl font-semibold text-blue-800 mb-4">About Rocket Insurance</h3>
-        <p className="text-blue-700 max-w-2xl mx-auto">
-          Founded with the mission to simplify insurance for everyone, Rocket Insurance is Latina-owned and proudly Canadian. With strong roots in the community and a passion for helping people protect what matters, we’re bringing heart and hustle to the insurance world.
-        </p>
-      </section>
+        <section id="contact" className="py-16 px-8 text-center">
+          <h3 className="text-2xl font-bold text-blue-800 mb-4">Contact Us</h3>
+          <p>Email: <a href="mailto:info@rocket-insurance.ca" className="text-blue-600">info@rocket-insurance.ca</a></p>
+          <p>Phone: <a href="tel:+14165555555" className="text-blue-600">(416) 555-5555</a></p>
+          <p>Location: Brampton, Ontario</p>
+        </section>
 
-      <section id="services" className="py-16 px-10 text-center">
-        <h3 className="text-2xl font-semibold text-blue-800 mb-6">Our Services</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          <Card>
-            <CardContent className="p-6">
-              <h4 className="font-semibold text-lg text-blue-700">Auto Insurance</h4>
-              <p className="text-sm text-blue-600">Stay protected on the road with flexible, affordable auto policies.</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-6">
-              <h4 className="font-semibold text-lg text-blue-700">Home Insurance</h4>
-              <p className="text-sm text-blue-600">Shield your home and belongings with confidence and care.</p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardContent className="p-6">
-              <h4 className="font-semibold text-lg text-blue-700">Commercial Insurance</h4>
-              <p className="text-sm text-blue-600">We’ve got your business covered so you can focus on what matters.</p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section id="partners" className="bg-blue-50 py-16 px-10 text-center">
-        <h3 className="text-2xl font-semibold text-blue-800 mb-6">Our Partners</h3>
-        <div className="flex justify-center gap-10 flex-wrap">
-          {logos.map((logo, index) => (
-            <div key={index} className="text-blue-700 font-medium text-lg">
-              {logo}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="careers" className="py-16 px-10 text-center">
-        <h3 className="text-2xl font-semibold text-blue-800 mb-4">Careers</h3>
-        <p className="text-blue-700 max-w-xl mx-auto">
-          We’re always looking for passionate, driven people to join our rocket-fueled team. Let’s grow together.
-        </p>
-        <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2">
-          Apply Now
-        </Button>
-      </section>
-
-      <section id="contact" className="bg-white py-16 px-10 text-center">
-        <h3 className="text-2xl font-semibold text-blue-800 mb-4">Contact Us</h3>
-        <p className="text-blue-700">
-          Have questions or need support? Reach out to our friendly team. We’re here to help!
-        </p>
-        <Button className="mt-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-2">
-          Send a Message
-        </Button>
-      </section>
-    </div>
+        <footer className="text-center py-6 bg-white text-sm text-gray-600">
+          © {new Date().getFullYear()} Rocket Insurance. All rights reserved.
+        </footer>
+      </div>
+    </React.Fragment>
   );
 }
