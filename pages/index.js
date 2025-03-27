@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Rocket } from 'lucide-react';
+// import { Rocket } from 'lucide-react';
 
 export default function Home() {
   return (
