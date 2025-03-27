@@ -3,20 +3,18 @@ import { useEffect } from 'react';
 
 export default function Home() {
   useEffect(() => {
-    const interval = setInterval(() => {
-      const el = document.getElementById('partners-scroll');
-      if (el) {
-        el.scrollLeft += 1;
-        if (el.scrollLeft >= el.scrollWidth - el.clientWidth) {
-          el.scrollLeft = 0;
-        }
+    const style = document.createElement('style');
+    style.innerHTML = `
+      @keyframes scroll {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
       }
-    }, 30);
-    return () => clearInterval(interval);
+    `;
+    document.head.appendChild(style);
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200 text-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200 text-gray-800 font-[Outfit]">
       <Head>
         <title>Rocket Insurance</title>
         <link
@@ -67,13 +65,21 @@ export default function Home() {
 
       <section id="partners" className="py-16 px-8 text-center">
         <h3 className="text-2xl font-bold text-blue-800 mb-6">Our Partners</h3>
-        <div id="partners-scroll" className="flex gap-6 overflow-x-auto whitespace-nowrap scrollbar-hide">
-          <span className="inline-block px-4">Aviva</span>
-          <span className="inline-block px-4">Travelers</span>
-          <span className="inline-block px-4">Intact</span>
-          <span className="inline-block px-4">Wawanesa</span>
-          <span className="inline-block px-4">Economical</span>
-          <span className="inline-block px-4">CAA</span>
+        <div className="overflow-hidden whitespace-nowrap">
+          <div className="inline-block animate-[scroll_20s_linear_infinite] text-blue-700 space-x-10 text-lg">
+            <span>Aviva</span>
+            <span>Travelers</span>
+            <span>Intact</span>
+            <span>Wawanesa</span>
+            <span>Economical</span>
+            <span>CAA</span>
+            <span>Aviva</span>
+            <span>Travelers</span>
+            <span>Intact</span>
+            <span>Wawanesa</span>
+            <span>Economical</span>
+            <span>CAA</span>
+          </div>
         </div>
       </section>
 
