@@ -3,6 +3,11 @@ import Head from 'next/head';
 
 export default function Home() {
   return (
+    <div>
+      <h1>Hello world!</h1>
+    </div>
+  );
+}
     <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200">
       <Head>
         <title>Rocket Insurance</title>
