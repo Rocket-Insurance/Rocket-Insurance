@@ -24,7 +24,7 @@ export default function Home() {
         <h2 className="text-4xl md:text-5xl font-bold text-blue-900 mb-4">
           Reach New Heights with Rocket Insurance 🚀
         </h2>
-        <p className="text-lg text-blue-700 max-w-xl mx-auto mb-8">
+        <p className="text-lg text-blue-700 max-w-xl mx-auto mb-10">
           Personal and commercial insurance that’s out of this world.
         </p>
         <button className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-6 py-3 rounded-full">
