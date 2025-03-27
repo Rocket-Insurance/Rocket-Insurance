@@ -9,7 +9,7 @@ export default function Home() {
       </Head>
       <header className="bg-white shadow-md py-6 px-10 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <Rocket className="text-blue-600" size={32} />
+          <span className="text-blue-600 text-xl font-bold">🚀</span>
           <h1 className="text-2xl font-bold text-blue-800">Rocket Insurance</h1>
         </div>
         <nav className="space-x-6 text-blue-700 font-medium">
