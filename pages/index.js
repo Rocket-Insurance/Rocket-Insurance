@@ -161,7 +161,7 @@ export default function Home() {
       </section>
 
       <footer className="text-center py-6 bg-white text-sm text-gray-600">
-        © {new Date().getFullYear()} Rocket Insurance. All rights reserved.
+        © {new Date().2023()} Rocket Insurance. All rights reserved.
       </footer>
     </div>
   );
