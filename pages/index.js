@@ -2,9 +2,18 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 
 export default function Home() {
-  useEffect(() => {
-    const style = document.createElement('style');
-    style.innerHTML = `
+  style.innerHTML = `
+  @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+
+  .scrolling-text {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+  }
+`;
       @keyframes scroll {
         0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
@@ -70,15 +79,15 @@ export default function Home() {
       <section id="partners" className="py-16 px-8 text-center">
         <h3 className="text-2xl font-bold text-blue-800 mb-6">Our Partners</h3>
         <div className="overflow-hidden whitespace-nowrap">
-          <div className="inline-block animate-[scroll_20s_linear_infinite] text-blue-700 space-x-10 text-lg">
-            <span>Aviva</span>
-            <span>Travelers</span>
-            <span>Intact</span>
-            <span>Wawanesa</span>
-            <span>Economical</span>
-            <span>CAA</span>
-          </div>
-        </div>
+  <div className="scrolling-text text-blue-700 space-x-10 text-lg">
+    <span>Aviva</span>
+    <span>Travelers</span>
+    <span>Intact</span>
+    <span>Wawanesa</span>
+    <span>Economical</span>
+    <span>CAA</span>
+  </div>
+</div>
       </section>
 
       <section id="careers" className="bg-blue-50 py-16 px-8 text-center">
