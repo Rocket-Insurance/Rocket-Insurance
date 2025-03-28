@@ -47,46 +47,47 @@ export default function Home() {
           Personal and commercial insurance that’s out of this world. Let’s make your coverage easy, affordable, and stress-free.
         </p>
         <button
-          onClick={() => setShowForm(!showForm)}
+          onClick={() => setShowForm(true)}
           className="bg-blue-600 text-white px-6 py-3 rounded-full shadow hover:bg-blue-700 transition-all"
         >
           Get a Quote
         </button>
-
-        {showForm && (
-          <form className="mt-8 bg-white shadow-md rounded-lg p-6 max-w-xl mx-auto text-left space-y-4">
-            <div>
-              <label className="block font-semibold">Name</label>
-              <input type="text" className="w-full border px-4 py-2 rounded" required />
-            </div>
-            <div>
-              <label className="block font-semibold">Phone Number</label>
-              <input type="tel" className="w-full border px-4 py-2 rounded" required />
-            </div>
-            <div>
-              <label className="block font-semibold">Email Address</label>
-              <input type="email" className="w-full border px-4 py-2 rounded" required />
-            </div>
-            <div>
-              <label className="block font-semibold mb-2">Quote For:</label>
-              <div className="flex flex-wrap gap-4">
-                {['Auto', 'Home', 'Tenant', 'Boat', 'Bike', 'Business'].map((item) => (
-                  <label key={item} className="flex items-center gap-2">
-                    <input type="checkbox" value={item} /> {item}
-                  </label>
-                ))}
-              </div>
-            </div>
-            <div>
-              <label className="block font-semibold">Comments</label>
-              <textarea className="w-full border px-4 py-2 rounded" rows="4"></textarea>
-            </div>
-            <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
-              Submit
-            </button>
-          </form>
-        )}
       </main>
+
+      {showForm && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg max-w-md w-full shadow-lg">
+            <h3 className="text-xl font-bold text-blue-800 mb-4">Request a Quote</h3>
+            <form className="space-y-4">
+              <input className="w-full border p-2 rounded" placeholder="Name" required />
+              <input className="w-full border p-2 rounded" placeholder="Phone Number" required />
+              <input className="w-full border p-2 rounded" placeholder="Email Address" type="email" required />
+              <div className="space-y-2">
+                <p>Select Quote Types:</p>
+                <label className="block"><input type="checkbox" /> Auto</label>
+                <label className="block"><input type="checkbox" /> Home</label>
+                <label className="block"><input type="checkbox" /> Tenant</label>
+                <label className="block"><input type="checkbox" /> Boat</label>
+                <label className="block"><input type="checkbox" /> Bike</label>
+                <label className="block"><input type="checkbox" /> Business</label>
+              </div>
+              <textarea className="w-full border p-2 rounded" rows="4" placeholder="Additional comments..."></textarea>
+              <div className="flex justify-end space-x-4">
+                <button
+                  type="button"
+                  className="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400"
+                  onClick={() => setShowForm(false)}
+                >
+                  Cancel
+                </button>
+                <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
 
       <section id="about" className="bg-white py-16 px-8 text-center">
         <h3 className="text-2xl font-bold text-blue-800 mb-4">About Rocket Insurance</h3>
@@ -109,9 +110,18 @@ export default function Home() {
         <h3 className="text-2xl font-bold text-blue-800 mb-6">Our Partners</h3>
         <div className="overflow-hidden whitespace-nowrap">
           <div className="inline-block animate-[scroll_20s_linear_infinite] text-blue-700 space-x-10 text-lg">
-            {['Aviva', 'Travelers', 'Intact', 'Wawanesa', 'Economical', 'CAA', 'Aviva', 'Travelers', 'Intact', 'Wawanesa', 'Economical', 'CAA'].map(name => (
-              <span key={name}>{name}</span>
-            ))}
+            <span>Aviva</span>
+            <span>Travelers</span>
+            <span>Intact</span>
+            <span>Wawanesa</span>
+            <span>Economical</span>
+            <span>CAA</span>
+            <span>Aviva</span>
+            <span>Travelers</span>
+            <span>Intact</span>
+            <span>Wawanesa</span>
+            <span>Economical</span>
+            <span>CAA</span>
           </div>
         </div>
       </section>
