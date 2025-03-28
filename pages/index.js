@@ -11,10 +11,14 @@ export default function Home() {
       }
     `;
     document.head.appendChild(style);
+
+    return () => {
+      document.head.removeChild(style); // Cleanup on unmount
+    };
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200 text-gray-800 font-[Outfit]">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200 text-gray-800 font-Outfit">
       <Head>
         <title>Rocket Insurance</title>
         <link
@@ -25,12 +29,12 @@ export default function Home() {
 
       <header className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
         <h1 className="text-xl font-bold text-blue-800">🚀 Rocket Insurance</h1>
-        <nav className="space-x-6 text-blue-700 font-medium">
-          <a href="#about">About</a>
-          <a href="#services">Services</a>
-          <a href="#partners">Partners</a>
-          <a href="#careers">Careers</a>
-          <a href="#contact">Contact</a>
+        <nav aria-label="Main Navigation" className="space-x-6 text-blue-700 font-medium">
+          <a href="#about" aria-label="About section">About</a>
+          <a href="#services" aria-label="Services section">Services</a>
+          <a href="#partners" aria-label="Partners section">Partners</a>
+          <a href="#careers" aria-label="Careers section">Careers</a>
+          <a href="#contact" aria-label="Contact section">Contact</a>
         </nav>
       </header>
 
@@ -67,12 +71,6 @@ export default function Home() {
         <h3 className="text-2xl font-bold text-blue-800 mb-6">Our Partners</h3>
         <div className="overflow-hidden whitespace-nowrap">
           <div className="inline-block animate-[scroll_20s_linear_infinite] text-blue-700 space-x-10 text-lg">
-            <span>Aviva</span>
-            <span>Travelers</span>
-            <span>Intact</span>
-            <span>Wawanesa</span>
-            <span>Economical</span>
-            <span>CAA</span>
             <span>Aviva</span>
             <span>Travelers</span>
             <span>Intact</span>
