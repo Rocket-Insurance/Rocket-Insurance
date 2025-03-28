@@ -2,32 +2,34 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 
 export default function Home() {
-  style.innerHTML = `
-  @keyframes scroll {
-    0% { transform: translateX(100%); }
-    100% { transform: translateX(-100%); }
-  }
+  useEffect(() => {
+    const addStyles = () => {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        @keyframes scroll {
+          0% { transform: translateX(100%); }
+          100% { transform: translateX(-100%); }
+        }
+      `;
+      document.head.appendChild(style);
+    };
 
-  .scrolling-text {
-    display: inline-block;
-    white-space: nowrap;
-    animation: scroll 20s linear infinite;
-  }
-`;
-      @keyframes scroll {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-      }
-    `;
-    document.head.appendChild(style);
+    if (typeof window !== 'undefined') {
+      addStyles();
+    }
 
     return () => {
-      document.head.removeChild(style); // Cleanup on unmount
+      const styles = document.head.querySelectorAll('style');
+      styles.forEach((style) => {
+        if (style.innerHTML.includes('@keyframes scroll')) {
+          document.head.removeChild(style);
+        }
+      });
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200 text-gray-800 font-Outfit">
+    <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-200 text-gray-800 font-[Outfit]">
       <Head>
         <title>Rocket Insurance</title>
         <link
@@ -38,12 +40,10 @@ export default function Home() {
 
       <header className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
         <h1 className="text-xl font-bold text-blue-800">🚀 Rocket Insurance</h1>
-        <nav aria-label="Main Navigation" className="space-x-6 text-blue-700 font-medium">
-          <a href="#about" aria-label="About section">About</a>
-          <a href="#services" aria-label="Services section">Services</a>
-          <a href="#partners" aria-label="Partners section">Partners</a>
-          <a href="#careers" aria-label="Careers section">Careers</a>
-          <a href="#contact" aria-label="Contact section">Contact</a>
+        <nav className="space-x-6 text-blue-700 font-medium">
+          {['About', 'Services', 'Partners', 'Careers', 'Contact'].map((item) => (
+            <a key={item} href={`#${item.toLowerCase()}`}>{item}</a>
+          ))}
         </nav>
       </header>
 
@@ -69,25 +69,21 @@ export default function Home() {
       <section id="services" className="py-16 px-8 text-center bg-blue-50">
         <h3 className="text-2xl font-bold text-blue-800 mb-4">Our Services</h3>
         <ul className="space-y-2">
-          <li>✔️ Auto Insurance</li>
-          <li>✔️ Home Insurance</li>
-          <li>✔️ Commercial Insurance</li>
-          <li>✔️ Life Insurance</li>
+          {['Auto Insurance', 'Home Insurance', 'Commercial Insurance', 'Life Insurance'].map(service => (
+            <li key={service}>✔️ {service}</li>
+          ))}
         </ul>
       </section>
 
       <section id="partners" className="py-16 px-8 text-center">
         <h3 className="text-2xl font-bold text-blue-800 mb-6">Our Partners</h3>
         <div className="overflow-hidden whitespace-nowrap">
-  <div className="scrolling-text text-blue-700 space-x-10 text-lg">
-    <span>Aviva</span>
-    <span>Travelers</span>
-    <span>Intact</span>
-    <span>Wawanesa</span>
-    <span>Economical</span>
-    <span>CAA</span>
-  </div>
-</div>
+          <div className="inline-block animate-[scroll_20s_linear_infinite] text-blue-700 space-x-10 text-lg">
+            {['Aviva', 'Travelers', 'Intact', 'Wawanesa', 'Economical', 'CAA'].map(partner => (
+              <span key={partner}>{partner}</span>
+            ))}
+          </div>
+        </div>
       </section>
 
       <section id="careers" className="bg-blue-50 py-16 px-8 text-center">
