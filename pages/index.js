@@ -100,9 +100,13 @@ export default function Home() {
         <h3 className="text-2xl font-bold text-blue-800 mb-4">Our Services</h3>
         <ul className="space-y-2">
           <li>✔️ Auto Insurance</li>
+        
           <li>✔️ Home Insurance</li>
+        
           <li>✔️ Commercial Insurance</li>
+        
           <li>✔️ Life Insurance</li>
+        
         </ul>
       </section>
 
@@ -111,17 +115,30 @@ export default function Home() {
         <div className="overflow-hidden whitespace-nowrap">
           <div className="inline-block animate-[scroll_20s_linear_infinite] text-blue-700 space-x-10 text-lg">
             <span>Aviva</span>
+        
             <span>Travelers</span>
+        
             <span>Intact</span>
+        
             <span>Wawanesa</span>
+        
             <span>Economical</span>
-            <span>CAA</span>
+        
+            <span>Pembridge</span>
+        
             <span>Aviva</span>
+        
             <span>Travelers</span>
+        
             <span>Intact</span>
+        
             <span>Wawanesa</span>
+        
             <span>Economical</span>
+        
             <span>CAA</span>
+
+           <span>Gore</span>
           </div>
         </div>
       </section>
