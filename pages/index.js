@@ -3,29 +3,23 @@ import { useEffect } from 'react';
 
 export default function Home() {
   useEffect(() => {
-    const addStyles = () => {
+    if (typeof window !== 'undefined') {
       const style = document.createElement('style');
       style.innerHTML = `
         @keyframes scroll {
           0% { transform: translateX(100%); }
           100% { transform: translateX(-100%); }
         }
+
+        .scrolling-text {
+          display: inline-block;
+          white-space: nowrap;
+          animation: scroll 20s linear infinite;
+        }
       `;
       document.head.appendChild(style);
-    };
-
-    if (typeof window !== 'undefined') {
-      addStyles();
+      return () => document.head.removeChild(style);
     }
-
-    return () => {
-      const styles = document.head.querySelectorAll('style');
-      styles.forEach((style) => {
-        if (style.innerHTML.includes('@keyframes scroll')) {
-          document.head.removeChild(style);
-        }
-      });
-    };
   }, []);
 
   return (
@@ -40,10 +34,12 @@ export default function Home() {
 
       <header className="bg-white shadow-md py-4 px-6 flex justify-between items-center">
         <h1 className="text-xl font-bold text-blue-800">🚀 Rocket Insurance</h1>
-        <nav className="space-x-6 text-blue-700 font-medium">
-          {['About', 'Services', 'Partners', 'Careers', 'Contact'].map((item) => (
-            <a key={item} href={`#${item.toLowerCase()}`}>{item}</a>
-          ))}
+        <nav aria-label="Main Navigation" className="space-x-6 text-blue-700 font-medium">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#partners">Partners</a>
+          <a href="#careers">Careers</a>
+          <a href="#contact">Contact</a>
         </nav>
       </header>
 
@@ -69,19 +65,29 @@ export default function Home() {
       <section id="services" className="py-16 px-8 text-center bg-blue-50">
         <h3 className="text-2xl font-bold text-blue-800 mb-4">Our Services</h3>
         <ul className="space-y-2">
-          {['Auto Insurance', 'Home Insurance', 'Commercial Insurance', 'Life Insurance'].map(service => (
-            <li key={service}>✔️ {service}</li>
-          ))}
+          <li>✔️ Auto Insurance</li>
+          <li>✔️ Home Insurance</li>
+          <li>✔️ Commercial Insurance</li>
+          <li>✔️ Life Insurance</li>
         </ul>
       </section>
 
       <section id="partners" className="py-16 px-8 text-center">
         <h3 className="text-2xl font-bold text-blue-800 mb-6">Our Partners</h3>
         <div className="overflow-hidden whitespace-nowrap">
-          <div className="inline-block animate-[scroll_20s_linear_infinite] text-blue-700 space-x-10 text-lg">
-            {['Aviva', 'Travelers', 'Intact', 'Wawanesa', 'Economical', 'CAA'].map(partner => (
-              <span key={partner}>{partner}</span>
-            ))}
+          <div className="scrolling-text text-blue-700 space-x-10 text-lg">
+            <span>Aviva</span>
+            <span>Travelers</span>
+            <span>Intact</span>
+            <span>Wawanesa</span>
+            <span>Economical</span>
+            <span>CAA</span>
+            <span>Aviva</span>
+            <span>Travelers</span>
+            <span>Intact</span>
+            <span>Wawanesa</span>
+            <span>Economical</span>
+            <span>CAA</span>
           </div>
         </div>
       </section>
